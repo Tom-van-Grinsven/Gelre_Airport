@@ -8,7 +8,7 @@ using Gelre_airport.Database.Interfaces;
 
 namespace Gelre_airport.Repositories
 {
-    class CheckInCounterRepository
+    public class CheckInCounterRepository
     {
         private ICheckInCounterContext _context;
 

@@ -37,7 +37,10 @@
             this.txtFlightNumber = new System.Windows.Forms.TextBox();
             this.txtDestination = new System.Windows.Forms.TextBox();
             this.txtAirline = new System.Windows.Forms.TextBox();
-            this.txtDepartureDate = new System.Windows.Forms.TextBox();
+            this.btnFindPassenger = new System.Windows.Forms.Button();
+            this.lbPassengers = new System.Windows.Forms.ListBox();
+            this.dtpDeparture = new System.Windows.Forms.DateTimePicker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtPassengerName
@@ -88,9 +91,9 @@
             this.LblDepartureDate.AutoSize = true;
             this.LblDepartureDate.Location = new System.Drawing.Point(12, 218);
             this.LblDepartureDate.Name = "LblDepartureDate";
-            this.LblDepartureDate.Size = new System.Drawing.Size(70, 13);
+            this.LblDepartureDate.Size = new System.Drawing.Size(201, 13);
             this.LblDepartureDate.TabIndex = 5;
-            this.LblDepartureDate.Text = "Vertrekdatum";
+            this.LblDepartureDate.Text = "Vertrekdatum : yyyy-mm-dd hh:mm:ss.000";
             // 
             // txtFlightNumber
             // 
@@ -113,19 +116,47 @@
             this.txtAirline.Size = new System.Drawing.Size(216, 20);
             this.txtAirline.TabIndex = 8;
             // 
-            // txtDepartureDate
+            // btnFindPassenger
             // 
-            this.txtDepartureDate.Location = new System.Drawing.Point(11, 234);
-            this.txtDepartureDate.Name = "txtDepartureDate";
-            this.txtDepartureDate.Size = new System.Drawing.Size(216, 20);
-            this.txtDepartureDate.TabIndex = 9;
+            this.btnFindPassenger.Location = new System.Drawing.Point(11, 306);
+            this.btnFindPassenger.Name = "btnFindPassenger";
+            this.btnFindPassenger.Size = new System.Drawing.Size(216, 67);
+            this.btnFindPassenger.TabIndex = 10;
+            this.btnFindPassenger.Text = "Vind passagier";
+            this.btnFindPassenger.UseVisualStyleBackColor = true;
+            this.btnFindPassenger.Click += new System.EventHandler(this.btnFindPassenger_Click);
+            // 
+            // lbPassengers
+            // 
+            this.lbPassengers.FormattingEnabled = true;
+            this.lbPassengers.Location = new System.Drawing.Point(235, 29);
+            this.lbPassengers.Name = "lbPassengers";
+            this.lbPassengers.Size = new System.Drawing.Size(471, 342);
+            this.lbPassengers.TabIndex = 11;
+            // 
+            // dtpDeparture
+            // 
+            this.dtpDeparture.Location = new System.Drawing.Point(11, 260);
+            this.dtpDeparture.Name = "dtpDeparture";
+            this.dtpDeparture.Size = new System.Drawing.Size(215, 20);
+            this.dtpDeparture.TabIndex = 12;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(10, 234);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(216, 20);
+            this.textBox1.TabIndex = 13;
             // 
             // CheckInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 385);
-            this.Controls.Add(this.txtDepartureDate);
+            this.ClientSize = new System.Drawing.Size(708, 385);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dtpDeparture);
+            this.Controls.Add(this.lbPassengers);
+            this.Controls.Add(this.btnFindPassenger);
             this.Controls.Add(this.txtAirline);
             this.Controls.Add(this.txtDestination);
             this.Controls.Add(this.txtFlightNumber);
@@ -153,6 +184,9 @@
         private System.Windows.Forms.TextBox txtFlightNumber;
         private System.Windows.Forms.TextBox txtDestination;
         private System.Windows.Forms.TextBox txtAirline;
-        private System.Windows.Forms.TextBox txtDepartureDate;
+        private System.Windows.Forms.Button btnFindPassenger;
+        private System.Windows.Forms.ListBox lbPassengers;
+        private System.Windows.Forms.DateTimePicker dtpDeparture;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

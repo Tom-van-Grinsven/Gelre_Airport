@@ -8,15 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Gelre_airport.Database;
 using System.Windows.Forms;
+using Gelre_airport.Classes;
 using System.Data.SqlClient;
 
 namespace Gelre_airport
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         DatabaseConnection db = new DatabaseConnection();
         GelreAirport airport = new GelreAirport();
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();         
         }
@@ -53,7 +54,16 @@ namespace Gelre_airport
 
         private void btnSelectCheckInCounter_Click(object sender, EventArgs e)
         {
-            UpdateEmbeddedForm(new CheckInForm());
+            var SelectedCheckInCounter = lbCheckInCounters.SelectedItem as CheckInCounter;
+            if (SelectedCheckInCounter != null)
+            {
+                UpdateEmbeddedForm(new CheckInForm(SelectedCheckInCounter.CheckInCounterNumber, this.airport));
+            }
+            else
+            {
+                MessageBox.Show("Selecteer een balie");
+            }
+            
         }
     }
 }

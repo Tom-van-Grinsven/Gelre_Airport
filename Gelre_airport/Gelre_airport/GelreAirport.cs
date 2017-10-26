@@ -9,15 +9,21 @@ using Gelre_airport.Classes;
 
 namespace Gelre_airport
 {
-    class GelreAirport
+    public class GelreAirport
     {
         public CheckInCounterRepository counterRepo = new CheckInCounterRepository(new CheckInCounterMSSQLContext());
+        public PassengerRepository passengerRepo = new PassengerRepository(new PassengerMSSQLContext());
 
         public List<CheckInCounter> counters { get; set; }
 
         public GelreAirport()
         {
-            counters = counterRepo.getAllCheckInCounters();
+            counters = counterRepo.getAllCheckInCounters();           
+        }
+
+        public List<Passenger> getPassengersByParameters(string Name, int FlightNumber, string Destination, string Airline, String Departure)
+        {
+            return passengerRepo.GetPassengersByParameters(Name, FlightNumber, Destination, Airline, Departure);
         }
     }
 }
