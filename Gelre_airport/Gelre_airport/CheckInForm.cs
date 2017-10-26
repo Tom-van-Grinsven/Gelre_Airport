@@ -22,20 +22,36 @@ namespace Gelre_airport
 
         private void btnFindPassenger_Click(object sender, EventArgs e)
         {
-            string Name = txtPassengerName.Text;
-            int FlightNumber = Convert.ToInt32(txtFlightNumber.Text);
-            string Destination = txtDestination.Text;
-            string Airline = txtAirline.Text;
-            DateTime Departure = Convert.ToDateTime(textBox1.Text);
-            //Departure.Date.AddHours(23).AddMinutes(37);
-            string formattedDate = Departure.ToString("yyyy-MM-dd HH:mm:ss.fff");
-            
-
-            foreach (var passenger in Airport.getPassengersByParameters(Name, FlightNumber, Destination, Airline, formattedDate))
+            try
             {
-                lbPassengers.Items.Add(passenger);
+                lbPassengers.Items.Clear();
+                string Name = txtPassengerName.Text;
+                int FlightNumber = Convert.ToInt32(txtFlightNumber.Text);
+                string Destination = txtDestination.Text;
+                string Airline = txtAirline.Text;
+                var Departure = new DateTime(dtpDeparture.Value.Year, dtpDeparture.Value.Month, dtpDeparture.Value.Day, Convert.ToInt32(nudHour.Value), Convert.ToInt32(nudMinute.Value), 0);
+                string formattedDate = Departure.ToString("yyyy-MM-dd HH:mm:ss.fff");
+
+                foreach (var passenger in Airport.getPassengersByParameters(Name, FlightNumber, Destination, Airline, formattedDate))
+                {
+                    lbPassengers.Items.Add(passenger);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Vul alle velden correct in");
             }
             
+            
+
+            
+            
+        }
+
+        private void lbPassengers_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lbPassengerBaggage.Items.Clear();
+            lbPassengerBaggage.Items.Add("harryyyyy");
         }
     }
 }

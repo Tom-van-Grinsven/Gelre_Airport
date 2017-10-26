@@ -40,7 +40,14 @@
             this.btnFindPassenger = new System.Windows.Forms.Button();
             this.lbPassengers = new System.Windows.Forms.ListBox();
             this.dtpDeparture = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nudHour = new System.Windows.Forms.NumericUpDown();
+            this.nudMinute = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbPassengerDetails = new System.Windows.Forms.ListBox();
+            this.lbPassengerBaggage = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinute)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPassengerName
@@ -91,9 +98,9 @@
             this.LblDepartureDate.AutoSize = true;
             this.LblDepartureDate.Location = new System.Drawing.Point(12, 218);
             this.LblDepartureDate.Name = "LblDepartureDate";
-            this.LblDepartureDate.Size = new System.Drawing.Size(201, 13);
+            this.LblDepartureDate.Size = new System.Drawing.Size(70, 13);
             this.LblDepartureDate.TabIndex = 5;
-            this.LblDepartureDate.Text = "Vertrekdatum : yyyy-mm-dd hh:mm:ss.000";
+            this.LblDepartureDate.Text = "Vertrekdatum";
             // 
             // txtFlightNumber
             // 
@@ -118,9 +125,9 @@
             // 
             // btnFindPassenger
             // 
-            this.btnFindPassenger.Location = new System.Drawing.Point(11, 306);
+            this.btnFindPassenger.Location = new System.Drawing.Point(11, 312);
             this.btnFindPassenger.Name = "btnFindPassenger";
-            this.btnFindPassenger.Size = new System.Drawing.Size(216, 67);
+            this.btnFindPassenger.Size = new System.Drawing.Size(216, 61);
             this.btnFindPassenger.TabIndex = 10;
             this.btnFindPassenger.Text = "Vind passagier";
             this.btnFindPassenger.UseVisualStyleBackColor = true;
@@ -131,29 +138,76 @@
             this.lbPassengers.FormattingEnabled = true;
             this.lbPassengers.Location = new System.Drawing.Point(235, 29);
             this.lbPassengers.Name = "lbPassengers";
-            this.lbPassengers.Size = new System.Drawing.Size(471, 342);
+            this.lbPassengers.Size = new System.Drawing.Size(227, 342);
             this.lbPassengers.TabIndex = 11;
+            this.lbPassengers.SelectedValueChanged += new System.EventHandler(this.lbPassengers_SelectedValueChanged);
             // 
             // dtpDeparture
             // 
-            this.dtpDeparture.Location = new System.Drawing.Point(11, 260);
+            this.dtpDeparture.Location = new System.Drawing.Point(10, 234);
             this.dtpDeparture.Name = "dtpDeparture";
-            this.dtpDeparture.Size = new System.Drawing.Size(215, 20);
-            this.dtpDeparture.TabIndex = 12;
+            this.dtpDeparture.Size = new System.Drawing.Size(216, 20);
+            this.dtpDeparture.TabIndex = 14;
             // 
-            // textBox1
+            // nudHour
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 234);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 20);
-            this.textBox1.TabIndex = 13;
+            this.nudHour.Location = new System.Drawing.Point(77, 260);
+            this.nudHour.Name = "nudHour";
+            this.nudHour.Size = new System.Drawing.Size(149, 20);
+            this.nudHour.TabIndex = 15;
+            // 
+            // nudMinute
+            // 
+            this.nudMinute.Location = new System.Drawing.Point(77, 286);
+            this.nudMinute.Name = "nudMinute";
+            this.nudMinute.Size = new System.Drawing.Size(149, 20);
+            this.nudMinute.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 266);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Uur";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 288);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Minuut";
+            // 
+            // lbPassengerDetails
+            // 
+            this.lbPassengerDetails.FormattingEnabled = true;
+            this.lbPassengerDetails.Location = new System.Drawing.Point(468, 29);
+            this.lbPassengerDetails.Name = "lbPassengerDetails";
+            this.lbPassengerDetails.Size = new System.Drawing.Size(227, 160);
+            this.lbPassengerDetails.TabIndex = 19;
+            // 
+            // lbPassengerBaggage
+            // 
+            this.lbPassengerBaggage.FormattingEnabled = true;
+            this.lbPassengerBaggage.Location = new System.Drawing.Point(468, 198);
+            this.lbPassengerBaggage.Name = "lbPassengerBaggage";
+            this.lbPassengerBaggage.Size = new System.Drawing.Size(227, 173);
+            this.lbPassengerBaggage.TabIndex = 20;
             // 
             // CheckInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 385);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1012, 386);
+            this.Controls.Add(this.lbPassengerBaggage);
+            this.Controls.Add(this.lbPassengerDetails);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.nudMinute);
+            this.Controls.Add(this.nudHour);
             this.Controls.Add(this.dtpDeparture);
             this.Controls.Add(this.lbPassengers);
             this.Controls.Add(this.btnFindPassenger);
@@ -168,6 +222,8 @@
             this.Controls.Add(this.txtPassengerName);
             this.Name = "CheckInForm";
             this.Text = "CheckInForm";
+            ((System.ComponentModel.ISupportInitialize)(this.nudHour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinute)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,6 +243,11 @@
         private System.Windows.Forms.Button btnFindPassenger;
         private System.Windows.Forms.ListBox lbPassengers;
         private System.Windows.Forms.DateTimePicker dtpDeparture;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown nudHour;
+        private System.Windows.Forms.NumericUpDown nudMinute;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox lbPassengerDetails;
+        private System.Windows.Forms.ListBox lbPassengerBaggage;
     }
 }

@@ -24,7 +24,7 @@ namespace Gelre_airport.Classes
 
         public override string ToString()
         {
-            return String.Format("Naam: {0}, Geslacht: {1}, Geboortedatum: {2}", Name, Gender, dateOfBirth);
+            return String.Format("Naam: {0}, Geslacht: {1}, Geboortedatum: {2}", Name, Gender, dateOfBirth.ToShortDateString());
         }
     }
 }

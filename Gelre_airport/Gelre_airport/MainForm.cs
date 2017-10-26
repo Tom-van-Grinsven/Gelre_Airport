@@ -46,6 +46,7 @@ namespace Gelre_airport
 
         private void btnGetCheckInCounters_Click(object sender, EventArgs e)
         {
+            lbCheckInCounters.Items.Clear();
             foreach (var counter in airport.counters)
             {
                 lbCheckInCounters.Items.Add(counter);
