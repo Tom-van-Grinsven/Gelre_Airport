@@ -11,7 +11,7 @@ namespace Gelre_airport.Classes
         public int passengerNumber { get; private set; }
         public string Name { get; private set; }
         public string Gender { get; private set; }
-        public DateTime dateOfBirth { get; set; }
+        public DateTime dateOfBirth { get; private set; }
 
 
         public Passenger(int passengerNumber, string Name, string Gender, DateTime dateOfBirth)

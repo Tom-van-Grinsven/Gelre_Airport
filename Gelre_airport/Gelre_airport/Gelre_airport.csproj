@@ -52,11 +52,14 @@
       <DependentUpon>CheckInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\CheckInCounter.cs" />
+    <Compile Include="Classes\Luggage.cs" />
     <Compile Include="Classes\Passenger.cs" />
     <Compile Include="Database\DatabaseConnection.cs" />
     <Compile Include="Database\Interfaces\ICheckInCounterContext.cs" />
+    <Compile Include="Database\Interfaces\ILuggageContext.cs" />
     <Compile Include="Database\Interfaces\IPassengerContext.cs" />
     <Compile Include="Database\MSSQLContext\CheckInCounterMSSQLContext.cs" />
+    <Compile Include="Database\MSSQLContext\LuggageMSSQLContext.cs" />
     <Compile Include="Database\MSSQLContext\PassengerMSSQLContext.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -68,6 +71,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CheckInCounterRepository.cs" />
+    <Compile Include="Repositories\LuggageRepository.cs" />
     <Compile Include="Repositories\PassengerRepository.cs" />
     <EmbeddedResource Include="CheckInForm.resx">
       <DependentUpon>CheckInForm.cs</DependentUpon>

@@ -44,8 +44,15 @@
             this.nudMinute = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbPassengerDetails = new System.Windows.Forms.ListBox();
+            this.lbFlightDetails = new System.Windows.Forms.ListBox();
             this.lbPassengerBaggage = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnDeleteLuggage = new System.Windows.Forms.Button();
+            this.txtBaggageFlightNumber = new System.Windows.Forms.TextBox();
+            this.txtWeight = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnAddLuggage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinute)).BeginInit();
             this.SuspendLayout();
@@ -181,29 +188,97 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "Minuut";
             // 
-            // lbPassengerDetails
+            // lbFlightDetails
             // 
-            this.lbPassengerDetails.FormattingEnabled = true;
-            this.lbPassengerDetails.Location = new System.Drawing.Point(468, 29);
-            this.lbPassengerDetails.Name = "lbPassengerDetails";
-            this.lbPassengerDetails.Size = new System.Drawing.Size(227, 160);
-            this.lbPassengerDetails.TabIndex = 19;
+            this.lbFlightDetails.FormattingEnabled = true;
+            this.lbFlightDetails.Location = new System.Drawing.Point(468, 29);
+            this.lbFlightDetails.Name = "lbFlightDetails";
+            this.lbFlightDetails.Size = new System.Drawing.Size(227, 160);
+            this.lbFlightDetails.TabIndex = 19;
             // 
             // lbPassengerBaggage
             // 
             this.lbPassengerBaggage.FormattingEnabled = true;
-            this.lbPassengerBaggage.Location = new System.Drawing.Point(468, 198);
+            this.lbPassengerBaggage.Location = new System.Drawing.Point(468, 224);
             this.lbPassengerBaggage.Name = "lbPassengerBaggage";
-            this.lbPassengerBaggage.Size = new System.Drawing.Size(227, 173);
+            this.lbPassengerBaggage.Size = new System.Drawing.Size(227, 108);
             this.lbPassengerBaggage.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(468, 208);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Stukken baggage";
+            // 
+            // btnDeleteLuggage
+            // 
+            this.btnDeleteLuggage.Location = new System.Drawing.Point(471, 348);
+            this.btnDeleteLuggage.Name = "btnDeleteLuggage";
+            this.btnDeleteLuggage.Size = new System.Drawing.Size(224, 23);
+            this.btnDeleteLuggage.TabIndex = 22;
+            this.btnDeleteLuggage.Text = "Verwijder stuk";
+            this.btnDeleteLuggage.UseVisualStyleBackColor = true;
+            this.btnDeleteLuggage.Click += new System.EventHandler(this.btnDeleteLuggage_Click);
+            // 
+            // txtBaggageFlightNumber
+            // 
+            this.txtBaggageFlightNumber.Location = new System.Drawing.Point(701, 250);
+            this.txtBaggageFlightNumber.Name = "txtBaggageFlightNumber";
+            this.txtBaggageFlightNumber.Size = new System.Drawing.Size(117, 20);
+            this.txtBaggageFlightNumber.TabIndex = 23;
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.Location = new System.Drawing.Point(701, 312);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Size = new System.Drawing.Size(117, 20);
+            this.txtWeight.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(702, 224);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Vluchtnummer";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(702, 293);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Gewicht";
+            // 
+            // btnAddLuggage
+            // 
+            this.btnAddLuggage.Location = new System.Drawing.Point(705, 348);
+            this.btnAddLuggage.Name = "btnAddLuggage";
+            this.btnAddLuggage.Size = new System.Drawing.Size(113, 23);
+            this.btnAddLuggage.TabIndex = 27;
+            this.btnAddLuggage.Text = "Voeg stuk toe";
+            this.btnAddLuggage.UseVisualStyleBackColor = true;
+            this.btnAddLuggage.Click += new System.EventHandler(this.btnAddLuggage_Click);
             // 
             // CheckInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 386);
+            this.ClientSize = new System.Drawing.Size(834, 386);
+            this.Controls.Add(this.btnAddLuggage);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtWeight);
+            this.Controls.Add(this.txtBaggageFlightNumber);
+            this.Controls.Add(this.btnDeleteLuggage);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lbPassengerBaggage);
-            this.Controls.Add(this.lbPassengerDetails);
+            this.Controls.Add(this.lbFlightDetails);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nudMinute);
@@ -247,7 +322,14 @@
         private System.Windows.Forms.NumericUpDown nudMinute;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox lbPassengerDetails;
+        private System.Windows.Forms.ListBox lbFlightDetails;
         private System.Windows.Forms.ListBox lbPassengerBaggage;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnDeleteLuggage;
+        private System.Windows.Forms.TextBox txtBaggageFlightNumber;
+        private System.Windows.Forms.TextBox txtWeight;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnAddLuggage;
     }
 }

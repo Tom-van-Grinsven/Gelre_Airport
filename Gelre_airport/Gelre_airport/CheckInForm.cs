@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gelre_airport.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Gelre_airport
     public partial class CheckInForm : Form
     {
         GelreAirport Airport = null;
+        Passenger selectedPassenger = null;
         public CheckInForm(int checkInCounterNumber, GelreAirport airport)
         {
             
@@ -36,6 +38,9 @@ namespace Gelre_airport
                 {
                     lbPassengers.Items.Add(passenger);
                 }
+
+                txtBaggageFlightNumber.Text = txtFlightNumber.Text;
+                txtBaggageFlightNumber.Enabled = false;
             }
             catch (FormatException)
             {
@@ -51,7 +56,60 @@ namespace Gelre_airport
         private void lbPassengers_SelectedValueChanged(object sender, EventArgs e)
         {
             lbPassengerBaggage.Items.Clear();
-            lbPassengerBaggage.Items.Add("harryyyyy");
+            selectedPassenger = lbPassengers.SelectedItem as Passenger;
+            if (selectedPassenger != null)
+            {
+                foreach (var pieceOfLuggage in Airport.getLuggageByPassengerNumber(selectedPassenger.passengerNumber))
+                {
+                    lbPassengerBaggage.Items.Add(pieceOfLuggage);
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Selecteer een passagier");
+            }
+        }
+
+        private void btnDeleteLuggage_Click(object sender, EventArgs e)
+        {
+            var selectedPieceOfLuggage = lbPassengerBaggage.SelectedItem as Luggage;
+            if (selectedPieceOfLuggage != null)
+            {
+                Airport.deleteLuggageByTrackingNumber(selectedPieceOfLuggage.trackingNumber);
+                if (this.selectedPassenger != null)
+                {
+                    lbPassengerBaggage.Items.Clear();
+                    foreach (var pieceOfLuggage in Airport.getLuggageByPassengerNumber(selectedPassenger.passengerNumber))
+                    {
+                        lbPassengerBaggage.Items.Add(pieceOfLuggage);
+                    }
+                }
+            }
+        }
+
+        private void btnAddLuggage_Click(object sender, EventArgs e)
+        {
+            if (selectedPassenger != null)
+            {
+                try
+                {
+                    Airport.addLuggageToPassenger(selectedPassenger.passengerNumber, Convert.ToInt32(txtFlightNumber.Text), Convert.ToInt32(txtWeight.Text));
+                    if (this.selectedPassenger != null)
+                    {
+                        lbPassengerBaggage.Items.Clear();
+                        foreach (var pieceOfLuggage in Airport.getLuggageByPassengerNumber(selectedPassenger.passengerNumber))
+                        {
+                            lbPassengerBaggage.Items.Add(pieceOfLuggage);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Vul alle velden correct in");
+                }
+                
+            }
         }
     }
 }
