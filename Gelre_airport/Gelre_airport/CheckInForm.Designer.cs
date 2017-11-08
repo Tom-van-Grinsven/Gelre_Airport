@@ -53,6 +53,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddLuggage = new System.Windows.Forms.Button();
+            this.txtSeatNumber = new System.Windows.Forms.TextBox();
+            this.btnCheckIn = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinute)).BeginInit();
             this.SuspendLayout();
@@ -145,7 +148,7 @@
             this.lbPassengers.FormattingEnabled = true;
             this.lbPassengers.Location = new System.Drawing.Point(235, 29);
             this.lbPassengers.Name = "lbPassengers";
-            this.lbPassengers.Size = new System.Drawing.Size(227, 342);
+            this.lbPassengers.Size = new System.Drawing.Size(366, 342);
             this.lbPassengers.TabIndex = 11;
             this.lbPassengers.SelectedValueChanged += new System.EventHandler(this.lbPassengers_SelectedValueChanged);
             // 
@@ -191,15 +194,15 @@
             // lbFlightDetails
             // 
             this.lbFlightDetails.FormattingEnabled = true;
-            this.lbFlightDetails.Location = new System.Drawing.Point(468, 29);
+            this.lbFlightDetails.Location = new System.Drawing.Point(607, 29);
             this.lbFlightDetails.Name = "lbFlightDetails";
-            this.lbFlightDetails.Size = new System.Drawing.Size(227, 160);
+            this.lbFlightDetails.Size = new System.Drawing.Size(596, 173);
             this.lbFlightDetails.TabIndex = 19;
             // 
             // lbPassengerBaggage
             // 
             this.lbPassengerBaggage.FormattingEnabled = true;
-            this.lbPassengerBaggage.Location = new System.Drawing.Point(468, 224);
+            this.lbPassengerBaggage.Location = new System.Drawing.Point(607, 224);
             this.lbPassengerBaggage.Name = "lbPassengerBaggage";
             this.lbPassengerBaggage.Size = new System.Drawing.Size(227, 108);
             this.lbPassengerBaggage.TabIndex = 20;
@@ -207,7 +210,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(468, 208);
+            this.label3.Location = new System.Drawing.Point(607, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 21;
@@ -215,7 +218,7 @@
             // 
             // btnDeleteLuggage
             // 
-            this.btnDeleteLuggage.Location = new System.Drawing.Point(471, 348);
+            this.btnDeleteLuggage.Location = new System.Drawing.Point(610, 348);
             this.btnDeleteLuggage.Name = "btnDeleteLuggage";
             this.btnDeleteLuggage.Size = new System.Drawing.Size(224, 23);
             this.btnDeleteLuggage.TabIndex = 22;
@@ -225,14 +228,14 @@
             // 
             // txtBaggageFlightNumber
             // 
-            this.txtBaggageFlightNumber.Location = new System.Drawing.Point(701, 250);
+            this.txtBaggageFlightNumber.Location = new System.Drawing.Point(840, 250);
             this.txtBaggageFlightNumber.Name = "txtBaggageFlightNumber";
             this.txtBaggageFlightNumber.Size = new System.Drawing.Size(117, 20);
             this.txtBaggageFlightNumber.TabIndex = 23;
             // 
             // txtWeight
             // 
-            this.txtWeight.Location = new System.Drawing.Point(701, 312);
+            this.txtWeight.Location = new System.Drawing.Point(840, 312);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Size = new System.Drawing.Size(117, 20);
             this.txtWeight.TabIndex = 24;
@@ -240,7 +243,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(702, 224);
+            this.label4.Location = new System.Drawing.Point(841, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 25;
@@ -249,7 +252,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(702, 293);
+            this.label5.Location = new System.Drawing.Point(841, 293);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 26;
@@ -257,7 +260,7 @@
             // 
             // btnAddLuggage
             // 
-            this.btnAddLuggage.Location = new System.Drawing.Point(705, 348);
+            this.btnAddLuggage.Location = new System.Drawing.Point(844, 348);
             this.btnAddLuggage.Name = "btnAddLuggage";
             this.btnAddLuggage.Size = new System.Drawing.Size(113, 23);
             this.btnAddLuggage.TabIndex = 27;
@@ -265,11 +268,40 @@
             this.btnAddLuggage.UseVisualStyleBackColor = true;
             this.btnAddLuggage.Click += new System.EventHandler(this.btnAddLuggage_Click);
             // 
+            // txtSeatNumber
+            // 
+            this.txtSeatNumber.Location = new System.Drawing.Point(1082, 249);
+            this.txtSeatNumber.Name = "txtSeatNumber";
+            this.txtSeatNumber.Size = new System.Drawing.Size(121, 20);
+            this.txtSeatNumber.TabIndex = 28;
+            // 
+            // btnCheckIn
+            // 
+            this.btnCheckIn.Location = new System.Drawing.Point(1082, 348);
+            this.btnCheckIn.Name = "btnCheckIn";
+            this.btnCheckIn.Size = new System.Drawing.Size(121, 23);
+            this.btnCheckIn.TabIndex = 29;
+            this.btnCheckIn.Text = "Check in";
+            this.btnCheckIn.UseVisualStyleBackColor = true;
+            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(1082, 224);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(118, 13);
+            this.label.TabIndex = 30;
+            this.label.Text = "Stoelnummer toewijzen:";
+            // 
             // CheckInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 386);
+            this.ClientSize = new System.Drawing.Size(1215, 388);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.btnCheckIn);
+            this.Controls.Add(this.txtSeatNumber);
             this.Controls.Add(this.btnAddLuggage);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -331,5 +363,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAddLuggage;
+        private System.Windows.Forms.TextBox txtSeatNumber;
+        private System.Windows.Forms.Button btnCheckIn;
+        private System.Windows.Forms.Label label;
     }
 }

@@ -11,6 +11,7 @@ namespace Gelre_airport.Database.MSSQLContext
 {
     public class PassengerMSSQLContext : IPassengerContext
     {
+
         public List<Passenger> GetPassengersByParameters(string Name, int FlightNumber, string Destination, string Airline, String Departure)
         {
             List<Passenger> passengers = new List<Passenger>();
@@ -23,6 +24,7 @@ namespace Gelre_airport.Database.MSSQLContext
                             "l.land = @Destination and " +
                             "v.maatschappijcode = @Airline and " +
                             "v.vertrekTijdstip = @Departure";
+
             try
             {
                 using (SqlConnection connection = DatabaseConnection.Connection)
@@ -51,11 +53,39 @@ namespace Gelre_airport.Database.MSSQLContext
                     }
                 }
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
-
+                System.Windows.Forms.MessageBox.Show(e.Message);
             }
             return null;
         }
+
+        public bool checkInPassenger(int passengerNumber, int flightNumber, int counterNumber, DateTime checkInTime, int seatNumber)
+        {
+            string query = "UPDATE PassagierVoorVlucht SET balienummer = @counterNumber, inchecktijdstip = @checkInTime, stoel = @seatNumber " +
+                "where passagiernummer = @passengerNumber and vluchtnummer = @flightNumber";
+            try
+            {
+                using (SqlConnection connection = DatabaseConnection.Connection)
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@passengerNumber", passengerNumber);
+                        command.Parameters.AddWithValue("@flightNumber", flightNumber);
+                        command.Parameters.AddWithValue("@counterNumber", counterNumber);
+                        command.Parameters.AddWithValue("@checkInTime", checkInTime);
+                        command.Parameters.AddWithValue("@seatNumber", seatNumber);
+                        command.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+            return false;
+        }
+
     }
 }

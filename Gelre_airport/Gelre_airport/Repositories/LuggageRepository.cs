@@ -18,9 +18,9 @@ namespace Gelre_airport.Repositories
             this._context = context;
         }
 
-        public List<Luggage> getLuggageByPassengerNumber(int passengerNumber)
+        public List<Luggage> getLuggageByPassengerNumber(int passengerNumber, int flightNumber)
         {
-            return _context.getLuggageByPassengerNumber(passengerNumber);
+            return _context.getLuggageByPassengerNumber(passengerNumber, flightNumber);
         }
 
         public bool addLuggageToPassenger(int passengerNumber, int flightNumber, int weight)

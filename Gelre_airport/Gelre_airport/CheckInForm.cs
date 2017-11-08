@@ -15,11 +15,15 @@ namespace Gelre_airport
     {
         GelreAirport Airport = null;
         Passenger selectedPassenger = null;
+        int checkInCounterNumber;
+        Utilities utils;
         public CheckInForm(int checkInCounterNumber, GelreAirport airport)
         {
             
             InitializeComponent();
             Airport = airport;
+            utils = new Utilities();
+            this.checkInCounterNumber = checkInCounterNumber;
         }
 
         private void btnFindPassenger_Click(object sender, EventArgs e)
@@ -45,12 +49,7 @@ namespace Gelre_airport
             catch (FormatException)
             {
                 MessageBox.Show("Vul alle velden correct in");
-            }
-            
-            
-
-            
-            
+            }   
         }
 
         private void lbPassengers_SelectedValueChanged(object sender, EventArgs e)
@@ -59,11 +58,16 @@ namespace Gelre_airport
             selectedPassenger = lbPassengers.SelectedItem as Passenger;
             if (selectedPassenger != null)
             {
-                foreach (var pieceOfLuggage in Airport.getLuggageByPassengerNumber(selectedPassenger.passengerNumber))
+                foreach (var pieceOfLuggage in Airport.getLuggageByPassengerNumber(selectedPassenger.passengerNumber, Convert.ToInt32(txtFlightNumber.Text)))
                 {
                     lbPassengerBaggage.Items.Add(pieceOfLuggage);
                 }
-                
+
+                foreach (var flight in Airport.getFlightByFlightNumber(Convert.ToInt32(txtFlightNumber.Text)))
+                {
+                    lbFlightDetails.Items.Add(flight);
+                }
+
             }
             else
             {
@@ -80,7 +84,7 @@ namespace Gelre_airport
                 if (this.selectedPassenger != null)
                 {
                     lbPassengerBaggage.Items.Clear();
-                    foreach (var pieceOfLuggage in Airport.getLuggageByPassengerNumber(selectedPassenger.passengerNumber))
+                    foreach (var pieceOfLuggage in Airport.getLuggageByPassengerNumber(selectedPassenger.passengerNumber, Convert.ToInt32(txtFlightNumber.Text)))
                     {
                         lbPassengerBaggage.Items.Add(pieceOfLuggage);
                     }
@@ -98,7 +102,7 @@ namespace Gelre_airport
                     if (this.selectedPassenger != null)
                     {
                         lbPassengerBaggage.Items.Clear();
-                        foreach (var pieceOfLuggage in Airport.getLuggageByPassengerNumber(selectedPassenger.passengerNumber))
+                        foreach (var pieceOfLuggage in Airport.getLuggageByPassengerNumber(selectedPassenger.passengerNumber, Convert.ToInt32(txtFlightNumber.Text)))
                         {
                             lbPassengerBaggage.Items.Add(pieceOfLuggage);
                         }
@@ -109,6 +113,26 @@ namespace Gelre_airport
                     MessageBox.Show("Vul alle velden correct in");
                 }
                 
+            }
+        }
+
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+            if (selectedPassenger != null && txtSeatNumber.Text != null)
+            {
+                try
+                {
+                    Airport.passengerRepo.checkInPassenger(selectedPassenger.passengerNumber, Convert.ToInt32(txtFlightNumber.Text), this.checkInCounterNumber, DateTime.Now, Convert.ToInt32(txtSeatNumber.Text));
+                    MessageBox.Show("Passagier is ingecheckt");
+                    utils.ResetAllControls(this);
+                    
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+                            
             }
         }
     }

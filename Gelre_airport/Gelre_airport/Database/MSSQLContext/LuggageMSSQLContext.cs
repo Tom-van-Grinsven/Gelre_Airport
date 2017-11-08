@@ -11,13 +11,14 @@ namespace Gelre_airport.Database.MSSQLContext
 {
     public class LuggageMSSQLContext : ILuggageContext
     {
-        public List<Luggage> getLuggageByPassengerNumber(int passengerNumber)
+        public List<Luggage> getLuggageByPassengerNumber(int passengerNumber, int flightNumber)
         {
             List<Luggage> luggage = new List<Luggage>();
 
             string query = "select o.volgnummer, o.gewicht from Object o " +
                 "join Passagier p on p.passagiernummer = o.passagiernummer " +
-                "where o.passagiernummer = @passengerNumber";
+                "where o.passagiernummer = @passengerNumber" +
+                " and o.vluchtnummer = @flightNumber";
             try
             {
                 using (SqlConnection connection = DatabaseConnection.Connection)
@@ -25,6 +26,7 @@ namespace Gelre_airport.Database.MSSQLContext
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@passengerNumber", passengerNumber);
+                        command.Parameters.AddWithValue("@flightNumber", flightNumber);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())

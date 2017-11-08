@@ -9,7 +9,7 @@ namespace Gelre_airport.Database.Interfaces
 {
     public interface ILuggageContext
     {
-        List<Luggage> getLuggageByPassengerNumber(int passengerNumber);
+        List<Luggage> getLuggageByPassengerNumber(int passengerNumber, int flightNumber);
         Boolean deleteLuggageByTrackingNumber(int trackingNumber);
         Boolean addLuggageToPassenger(int passengerNumber, int flightNumber, int weight);
     }

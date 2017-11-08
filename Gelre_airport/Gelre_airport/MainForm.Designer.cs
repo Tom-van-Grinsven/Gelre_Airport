@@ -66,19 +66,19 @@
             // 
             this.pnlWindow.Location = new System.Drawing.Point(259, 12);
             this.pnlWindow.Name = "pnlWindow";
-            this.pnlWindow.Size = new System.Drawing.Size(871, 381);
+            this.pnlWindow.Size = new System.Drawing.Size(1269, 381);
             this.pnlWindow.TabIndex = 4;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 405);
+            this.ClientSize = new System.Drawing.Size(1540, 405);
             this.Controls.Add(this.pnlWindow);
             this.Controls.Add(this.btnSelectCheckInCounter);
             this.Controls.Add(this.lbCheckInCounters);
             this.Controls.Add(this.btnGetCheckInCounters);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
 

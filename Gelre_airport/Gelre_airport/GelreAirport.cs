@@ -14,6 +14,7 @@ namespace Gelre_airport
         public CheckInCounterRepository counterRepo = new CheckInCounterRepository(new CheckInCounterMSSQLContext());
         public PassengerRepository passengerRepo = new PassengerRepository(new PassengerMSSQLContext());
         public LuggageRepository luggageRepo = new LuggageRepository(new LuggageMSSQLContext());
+        public FlightRepository flightRepo = new FlightRepository(new FlightMSSQLContext());
 
         public List<CheckInCounter> counters { get; set; }
 
@@ -27,9 +28,19 @@ namespace Gelre_airport
             return passengerRepo.GetPassengersByParameters(Name, FlightNumber, Destination, Airline, Departure);
         }
 
-        public List<Luggage> getLuggageByPassengerNumber(int passengerNumber)
+        public List<Luggage> getLuggageByPassengerNumber(int passengerNumber, int flightNumber)
         {
-            return luggageRepo.getLuggageByPassengerNumber(passengerNumber);
+            return luggageRepo.getLuggageByPassengerNumber(passengerNumber, flightNumber);
+        }
+
+        public List<Flight> getFlightByFlightNumber(int flightNumber)
+        {
+            return flightRepo.getByFlightNumber(flightNumber);
+        }
+
+        public Boolean checkInPassenger(int passengerNumber, int flightNumber, int counterNumber, DateTime checkInTime, int seatNumber)
+        {
+            return passengerRepo.checkInPassenger(passengerNumber, flightNumber, counterNumber, checkInTime, seatNumber);
         }
 
         public Boolean deleteLuggageByTrackingNumber(int trackingNumber)

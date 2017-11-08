@@ -10,5 +10,7 @@ namespace Gelre_airport.Database.Interfaces
     public interface IPassengerContext
     {
         List<Passenger> GetPassengersByParameters(string Name, int FlightNumber, string Destination, string Airline, String Departure);
+
+        Boolean checkInPassenger(int passengerNumber, int flightNumber, int counterNumber, DateTime checkInTime, int seatNumber);
     }
 }
