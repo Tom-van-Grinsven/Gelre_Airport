@@ -10,7 +10,7 @@ namespace Gelre_airport.Database
     public class DatabaseConnection
     {
         private const string connectionString =
-           "Server=DESKTOP-MDRT003;Database=gelre_airport;Trusted_Connection=True;";
+           "Server=DESKTOP-OEVOS92\\MSSQLSERVER01;Database=gelre_airport;Trusted_Connection=True;user id=baliemedewerker;password=baliemedewerker";
 
         public static SqlConnection Connection
         {

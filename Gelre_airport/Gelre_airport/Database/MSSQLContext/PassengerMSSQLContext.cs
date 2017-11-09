@@ -60,21 +60,18 @@ namespace Gelre_airport.Database.MSSQLContext
             return null;
         }
 
-        public bool checkInPassenger(int passengerNumber, int flightNumber, int counterNumber, DateTime checkInTime, int seatNumber)
+        public bool checkInPassenger(int passengerNumber, int flightNumber, string seatNumber)
         {
-            string query = "UPDATE PassagierVoorVlucht SET balienummer = @counterNumber, inchecktijdstip = @checkInTime, stoel = @seatNumber " +
-                "where passagiernummer = @passengerNumber and vluchtnummer = @flightNumber";
             try
             {
                 using (SqlConnection connection = DatabaseConnection.Connection)
                 {
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new SqlCommand("spStoelVoorPassagier", connection))
                     {
-                        command.Parameters.AddWithValue("@passengerNumber", passengerNumber);
-                        command.Parameters.AddWithValue("@flightNumber", flightNumber);
-                        command.Parameters.AddWithValue("@counterNumber", counterNumber);
-                        command.Parameters.AddWithValue("@checkInTime", checkInTime);
-                        command.Parameters.AddWithValue("@seatNumber", seatNumber);
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@passagiernummer", passengerNumber);
+                        command.Parameters.AddWithValue("@vluchtnummer", flightNumber);
+                        command.Parameters.AddWithValue("@stoel", seatNumber);
                         command.ExecuteNonQuery();
                         return true;
                     }

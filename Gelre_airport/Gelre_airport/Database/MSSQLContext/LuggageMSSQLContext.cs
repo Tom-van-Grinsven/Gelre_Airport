@@ -70,7 +70,6 @@ namespace Gelre_airport.Database.MSSQLContext
                 System.Windows.Forms.MessageBox.Show(e.Message);
             }
             return false;
-
         }
     
         public bool deleteLuggageByTrackingNumber(int trackingNumber)
@@ -93,7 +92,6 @@ namespace Gelre_airport.Database.MSSQLContext
 
             }
             return false;
-
         }
     }
 }

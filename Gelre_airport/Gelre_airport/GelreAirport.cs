@@ -38,9 +38,9 @@ namespace Gelre_airport
             return flightRepo.getByFlightNumber(flightNumber);
         }
 
-        public Boolean checkInPassenger(int passengerNumber, int flightNumber, int counterNumber, DateTime checkInTime, int seatNumber)
+        public Boolean checkInPassenger(int passengerNumber, int flightNumber, string seatNumber)
         {
-            return passengerRepo.checkInPassenger(passengerNumber, flightNumber, counterNumber, checkInTime, seatNumber);
+            return passengerRepo.checkInPassenger(passengerNumber, flightNumber, seatNumber);
         }
 
         public Boolean deleteLuggageByTrackingNumber(int trackingNumber)

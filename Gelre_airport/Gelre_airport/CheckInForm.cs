@@ -55,6 +55,7 @@ namespace Gelre_airport
         private void lbPassengers_SelectedValueChanged(object sender, EventArgs e)
         {
             lbPassengerBaggage.Items.Clear();
+            lbFlightDetails.Items.Clear();
             selectedPassenger = lbPassengers.SelectedItem as Passenger;
             if (selectedPassenger != null)
             {
@@ -122,7 +123,7 @@ namespace Gelre_airport
             {
                 try
                 {
-                    Airport.passengerRepo.checkInPassenger(selectedPassenger.passengerNumber, Convert.ToInt32(txtFlightNumber.Text), this.checkInCounterNumber, DateTime.Now, Convert.ToInt32(txtSeatNumber.Text));
+                    Airport.passengerRepo.checkInPassenger(selectedPassenger.passengerNumber, Convert.ToInt32(txtFlightNumber.Text), txtSeatNumber.Text);
                     MessageBox.Show("Passagier is ingecheckt");
                     utils.ResetAllControls(this);
                     
